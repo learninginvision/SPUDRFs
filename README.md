@@ -100,7 +100,7 @@ Here is the description of the main codes.
 - **picksamples.py:**   
   select samples for next pace   
 
-We also provide a separate folder for MPII datasets, because we use the pair of left eye patch and right eye patch, and additional head pose  as input, which requires a slight modification for the codes. You can use codes in MPII folder for experiments on MPII datasets.
+We also provide a separate folder for [MPII](https://github.com/learninginvision/SPU/tree/master/MPII) datasets, because we use the pair of left eye patch and right eye patch, and additional head pose  as input, which requires a slight modification for the codes. You can use codes in MPII folder for experiments on MPII datasets.
 
 #### **Train your SPUDRFs from scratch**:
 
