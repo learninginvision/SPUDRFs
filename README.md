@@ -58,16 +58,17 @@ We use FRIA, proposed in our paper, as fairness metric. FAIR is defined as follo
 </div>  
 f(·) evaluate fairness between two subsets, FAIR is the expectation of fairness of any two groups. Here we show the MAE of different groups on MORPH and BIWI dataset. As we can see, both SP-DRFs and SPUDRFs can achieve better performance than DRFs in lower age range, while SPUDRFs is significantly better than the other two methods in higher age range. This shows our method alleviate the bias of underrepresented samples. 
 
-<div align=half>
+<div align=center>
 <img src="./pic/fair_morph.jpg" width="400"><img src="./pic/fair_biwi_pitch.jpg" width="400">
 </div>   
 The following table shows the FAIR of different methods on different datasets. SPUDRFs achieve the best performance on all datasets.
-
+<p align="center">
 | Dataset |   MORPH   |   FGNET   |   BIWI    |  BU-3DFE  |   MPII    |
 | :-----: | :-------: | :-------: | :-------: | :-------: | :-------: |
 |  DRFs   |   0.581   |   0.471   |   0.462   |   0.740   |   0.668   |
 | SP-DRFs |   0.559   |   0.465   |   0.429   |   0.718   |   0.674   |
 | SPUDRFs | **0.608** | **0.474** | **0.702** | **0.756** | **0.686** |
+ </p>
 
 ## How to train your SPUDRFs
 
