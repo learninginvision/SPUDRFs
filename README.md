@@ -18,6 +18,7 @@ As we can see from the above figure, SPL focuses on easy samples and ignores und
 <div align=center>
 <img src="./pic/Rank1.jpg" width="600">
 </div>   
+
 ## Tasks and Performances
 
 ### **Age Estimation on MORPH II Dataset**
