@@ -1,10 +1,12 @@
 # Self-paced Deep Regression Forests with Consideration on Ranking Fairness
 
-This is official codes for paper Self-paced Deep Regression Forests with Consideration on Ranking Fairness.
+
 
 <div align=center>
 <img src="./pic/Figure1New.jpg" width="800">
 </div>   
+This is official codes for paper Self-paced Deep Regression Forests with Consideration on Ranking Fairness.
+
 ***Abstract:*** 
 
  
@@ -16,7 +18,6 @@ As we can see from the above figure, SPL focuses on easy samples and ignores und
 <div align=center>
 <img src="./pic/Rank1.jpg" width="600">
 </div>   
-
 ## Tasks and Performances
 
 ### **Age Estimation on MORPH II Dataset**
@@ -24,6 +25,8 @@ As we can see from the above figure, SPL focuses on easy samples and ignores und
 <div align=center>
 <img src="./pic/SPUDRFs_validation.jpg" width="800">
 </div>   
+
+
 
 The gradual learning process of SP-DRFs and SPUDRFs. **Left:** The typical worst cases at each iteration. The two numbers below each image are the real age (left) and predicted age (right). **Right:** The MAEs of SP-DRFs and SPUDRFs at each pace descend gradually. The SPUDRFs show its superiority of taking predictive uncertainty into consideration, when compared with SP-DRFs.
 
@@ -33,6 +36,7 @@ The gradual learning process of SP-DRFs and SPUDRFs. **Left:** The typical worst
 <img src="./pic/Uncertainty_mpii.jpg" width="800">
 </div>  
 
+
 The similar phenomena can be observed on MPII dataset. The MAE of SP-DRFs are inferior to that of SPUDRFs at each pace, which strongly demonstrates the defects of SP-DRFs.
 
 ### **Head Pose Estimation on BIWI Dataset**
@@ -41,23 +45,21 @@ The similar phenomena can be observed on MPII dataset. The MAE of SP-DRFs are in
 <img src="./pic/Uncertainty_efficacy.jpg" width="800">
 </div>  
 
+
 The leaf node distribution of SP-DRFs and SPUDRFs in gradual learning process. Three paces, i.e. pace 1, 3, and 6, are randomly chosen for visualization. For SP-DRFs, the Gaussian means of leaf nodes (the red points in the second row) are concentrated in a small range, incurring seriously biased solutions. For SPUDRFs, the Gaussian means of leaf nodes (the orange points in the third row) distribute widely, leading to much better MAE performance.
 
 ## Fairness Evaluation
 
 We use FRIA, proposed in our paper, as fairness metric. FAIR is defined as following form.
-$$
-FAIR = \mathbb{E}\left[f\left(\mathbf{D}_i,\mathbf{D}_j\right)\right] \\
-where \quad f\left( \mathbf{D}_i,\mathbf{D} _j\right) = \min\left(\frac{\mathbb{E}_{i}\left[L \left(\hat{y}, y\right)\right]}{\mathbb{E}_{j}\left[L\left(\hat{y}, y\right)\right]} ,  \frac{\mathbb{E}_{j}\left[L \left(\hat{y}, y\right)\right]}{\mathbb{E}_{i}\left[L \left(\hat{y}, y\right)\right]} \right)
-$$
-$f(\cdot)$ evaluate fairness between two subsets $D_i$ and $D_j$, FAIR is the expectation of fairness of any two groups. Here we show the MAE of different groups on MORPH and BIWI dataset. As we can see, both SP-DRFs and SPUDRFs can achieve better performance than DRFs in lower age range, while SPUDRFs is significantly better than the other two methods in higher age range. This shows our method alleviate the bias of underrepresented samples. 
+
+<div align=center>
+<img src="./pic/equation.png" width="400">
+</div>  
+f(·) evaluate fairness between two subsets, FAIR is the expectation of fairness of any two groups. Here we show the MAE of different groups on MORPH and BIWI dataset. As we can see, both SP-DRFs and SPUDRFs can achieve better performance than DRFs in lower age range, while SPUDRFs is significantly better than the other two methods in higher age range. This shows our method alleviate the bias of underrepresented samples. 
 
 <div align=half>
 <img src="./pic/fair_morph.jpg" width="400"><img src="./pic/fair_biwi_pitch.jpg" width="400">
 </div>   
-
-
-
 The following table shows the FAIR of different methods on different datasets. SPUDRFs achieve the best performance on all datasets.
 
 | Dataset |   MORPH   |   FGNET   |   BIWI    |  BU-3DFE  |   MPII    |
@@ -70,15 +72,9 @@ The following table shows the FAIR of different methods on different datasets. S
 
 ### Pre-trained models and Dataset
 
-We use pre-trained models for our training. You can download pre-trained models from following linkage.
+We use pre-trained models for our training. You can download VGGFace from [here](https://www.robots.ox.ac.uk/~vgg/software/vgg_face/), where both caffemodel and torch model are provided.  VGG IMDB-WIKI pre-trained model can be download [here](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/), where only caffemodel is provided. 
 
-VGGFACE.t7
-
-VGGimdb.pth
-
-VGG16Conv.pth
-
-We also provide our infomation about datasets we use in our experiment. We use MOPRH and FG-NET for age estimation, BIWI and BU-3DFE for head pose estimation, MPII for gaze estimation. We use MTCNN to detect and align face. For BIWI, we use depth images. For MPII, we preprocessing images following this repo.
+We also provide our infomation about datasets we use in our experiment. We use MOPRH and FG-NET for age estimation, BIWI and BU-3DFE for head pose estimation, [MPII](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/appearance-based-gaze-estimation-in-the-wild) for gaze estimation. We use MTCNN to detect and align face. For BIWI, we use depth images. For MPII, we preprocessing images following this [repo](https://github.com/Tobias-Fischer/rt_gene).
 
 ### Environment setup 
 
@@ -93,6 +89,7 @@ pip install -r requirements.txt
 #### **Code descritption:** 
 
 Here is the description of the main codes.  
+
 - **step.py:**   
   train SPUDRFs from scratch  
 - **train.py:**   
@@ -109,10 +106,12 @@ We also provide a separate folder for MPII datasets, because we use the pair of 
 You should download this repo, and prepare your datasets and pre-trained models, then just run following command to train your SPUDRFs from scratch.
 
 ```
-git clone https://github.com/learninginvision/SPUDRFs   
+git clone https://github.com/learninginvision/SPUDRFs.git  
 cd SPUDFRs  
 python step.py
 ```
 
+## Acknowledgments
 
+This code is inspired by [caffe-DRFs](https://github.com/shenwei1231/caffe-DeepRegressionForests).
 
