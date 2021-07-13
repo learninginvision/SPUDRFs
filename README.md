@@ -56,7 +56,7 @@ We use FRIA, proposed in our paper, as fairness metric. FAIR is defined as follo
 <div align=center>
 <img src="./pic/equation.png" width="400">
 </div>  
-f(·) evaluate fairness between two subsets, FAIR is the expectation of fairness of any two groups. Here we show the MAE of different groups on MORPH and BIWI dataset. As we can see, both SP-DRFs and SPUDRFs can achieve better performance than DRFs in lower age range, while SPUDRFs is significantly better than the other two methods in higher age range. This shows our method alleviate the bias of underrepresented samples. 
+f(·) evaluate fairness between two subsets, FAIR is the expectation of fairness of any two groups. Here we show the MAE of different groups on MORPH and BIWI dataset. As we can see from the left figure, both SP-DRFs and SPUDRFs can achieve better performance than DRFs in lower age range, while SPUDRFs is significantly better than the other two methods in higher age range. This shows our method alleviate the bias of underrepresented samples. We observe that the MAE of SPDRFs is even worse than DRFs for samples between $-50^\circ$ and $-40^\circ$. This demonstrates the obvious drawback of the ranking and selecting scheme in original SPL --- incurring biased solutions. Our method improve the performance of underrepresented samples. Meanwhile it guarantees the performance of easy samples is also maintained at a good level, thus ensuring that the model treats the training samples fairly.
 
 <div align=center>
 <img src="./pic/fair_morph.jpg" width="400"><img src="./pic/fair_biwi_pitch.jpg" width="400">
