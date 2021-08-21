@@ -65,9 +65,9 @@ The following table shows the FAIR of different methods on different datasets. S
     
 | Dataset |   MORPH   |   FGNET   |   BIWI    |  BU-3DFE  |   MPII    |
 | :-----: | :-------: | :-------: | :-------: | :-------: | :-------: |
-|  DRFs   |   0.581   |   0.471   |   0.462   |   0.740   |   0.668   |
-| SP-DRFs |   0.559   |   0.465   |   0.429   |   0.718   |   0.674   |
-| SPUDRFs | **0.608** | **0.474** | **0.702** | **0.756** | **0.686** |      
+|  DRFs   |   0.46   |   0.42   |   0.46   |   0.740   |   0.67   |
+| SP-DRFs |   0.44   |   0.37   |   0.43   |   0.72   |   0.67   |
+| SPUDRFs | **0.48** | **0.42** | **0.70** | **0.76** | **0.69** |      
     
 ## How to train your SPUDRFs
 
