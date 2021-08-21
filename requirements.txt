@@ -1,7 +1,6 @@
 imageio==2.8.0
 numpy==1.18.1
 opencv-python==4.2.0.34
-PyYAML==5.3.1
 scikit-image==0.17.2
 scikit-learn==0.23.1
 scipy==1.4.1
