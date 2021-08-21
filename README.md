@@ -7,7 +7,7 @@
 </div>   
 This is official codes for paper Self-paced Deep Regression Forests with Consideration on Ranking Fairness.
 
-***Abstract:*** 待补充
+***Abstract:*** 	Deep discriminative models (DDMs), \eg~deep regression forests, deep neural decision forests, have been extensively studied recently to solve problems like facial age estimation, head pose estimation, gaze estimation and so forth. Such problems are challenging in part because a large amount of effective training data without noise and bias is often not available. While some progress has been achieved through learning more discriminative features, or reweighting samples, we argue what is more desirable is to learn gradually to discriminate like human beings. Then, we resort to self-paced learning (SPL). But a natural question arises: can self-paced regime lead DDMs to achieve more robust and less biased solutions? A serious problem with SPL, which is firstly mentioned by this work, is it tends to aggravate the bias of solutions, especially for obvious imbalanced data. To this end, this paper proposes a new self-paced paradigm for deep discriminative model, which distinguishes noisy and underrepresented examples according to the output likelihood and entropy associated with each example, and tackle the fundamental ranking problem in SPL from a new perspective: **fairness**. This paradigm is fundamental, and could be easily combined with a variety of DDMs. Extensive experiments on three computer vision tasks, \ie, facial age estimation, head pose estimation and gaze estimation, demonstrate the efficacy of our paradigm. To the best of our knowledge, our work is the first paper in the literature of SPL that considers ranking fairness for self-paced regime construction.
 
  
 
