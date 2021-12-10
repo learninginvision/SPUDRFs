@@ -86,15 +86,12 @@ pip install -r requirements.txt
 #### **Code descritption:** 
 
 Here is the description of the main codes.  
-
-- **step.py:**   
-  train SPUDRFs from scratch  
-- **train.py:**   
-  complete one pace training for a given train set
-- **predict.py:**   
-  complete a test for a given test set
-- **picksamples.py:**   
-  select samples for next pace   
+```
+       step.py:  train SPUDRFs from scratch  
+      train.py:  complete one pace training for a given train set
+    predict.py:  complete a test for a given test set
+picksamples.py:  select samples for next pace   
+```
 
 <!-- We also provide a separate folder for [MPII](https://github.com/learninginvision/SPU/tree/master/MPII) datasets, because we use the pair of left eye patch and right eye patch, and additional head pose  as input, which requires a slight modification for the codes. You can use codes in MPII folder for experiments on MPII datasets. -->
 
