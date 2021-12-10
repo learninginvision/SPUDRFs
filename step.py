@@ -9,18 +9,9 @@ def checkdir(path):
     if not os.path.isdir(path):
         os.makedirs(path)
 
-pace_percent = [0.5, 1.0/18, 1.0/18, 1.0/18, 1.0/18, 1.0/18, 1.0/18, 1.0/18, 1.0/18, 1.0/18]
-
-config = {
-    'exp': '1',
-    'alpha': 2,
-    'threshold': -3.0,
-    'capped': False,
-    'lr': 0.00002,
-    'batchsize': 32
-}
-
-alpha=[config['alpha'] for i in range(10)]
+config = yaml.load(open('./config.yml'), Loader=yaml.FullLoader)
+pace_percent = config['pace_percnet']
+alpha=[config['alpha'] for i in range(config['total_pace'])]
 
 Exp = config['exp']
 
@@ -28,10 +19,10 @@ base_weights = '/root/new/models/VGG_FACE.t7'
 checkpointsPath = './checkpoints/Exp{}/'.format(Exp)
 
 dataset_ = 'MORPH'
-max_step = 40000
+max_step = config['max_step']
 train_dict = {
-    'num_trees': 5, 'tree_depth': 6, 'num_classes': 1, 'dataset': dataset_,
-    'num_batchs_update_forest': 50, 'iterations_update_forest': 20, 'exp': Exp,
+    'num_trees': config['num_trees'], 'tree_depth': config['tree_depth'], 'num_classes': 1, 'dataset': dataset_, 'exp': Exp,
+    'num_batchs_update_forest': config['num_batchs_update_forest'], 'iterations_update_forest': config['iterations_update_forest'], 
     'train_txt': '/root/new/dataset/morph/txt-train/{}-train.txt'.format(dataset_), 
     'test_txt': '/root/new/dataset/morph/txt-train/{}-test.txt'.format(dataset_),
     'img_dir': "/root/new/dataset/morph/images/",
@@ -48,7 +39,7 @@ with open('./Exp{}/config.yaml'.format(config['exp']), 'w') as f:
         f.write(yaml.dump(config))
 
 picksamples = PickSamples(exp=Exp, percent=pace_percent, pace=0, alpha=alpha, ent_threshold=config['threshold'],
-    diff_threshold=1000, ent_pick_per=0, random_pick=False, soft=True,  soft_percent=1.0, 
+    diff_threshold=1000, ent_pick_per=config['ent_pick_per'], random_pick=False, soft=True,  soft_percent=1.0, 
     train_txt0=train_dict['train_txt'],
     img_dir=train_dict['img_dir'])
 
@@ -75,7 +66,7 @@ for pace in range(0, 1+len(pace_percent)):
         train_dict['train_txt'] = pick_txt
         train_dict['pretrain_model'] = (checkpointsPath, pace-1, dataset_, 100)   
     if pace > 0 and pace < len(pace_percent):
-        train_dict['max_step'] = 30000
+        train_dict['max_step'] = 40000
     else:
         train_dict['max_step'] = max_step
     print(train_dict)
