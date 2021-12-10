@@ -95,7 +95,7 @@ You should download this repo, and prepare your datasets and pre-trained models,
 git clone https://github.com/learninginvision/SPUDRFs.git  
 cd SPUDFRs  
 ```
-- set config.yml
+- Set config.yml
 ```
 lr: 0.00002
 max_step: 80000
@@ -108,7 +108,7 @@ threshold: -3.0
 ent_pick_per: 0
 capped: False
 ```
-- train from scratch
+- Train from scratch
 ```
 python step.py
 ```
