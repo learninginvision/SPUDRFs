@@ -10,7 +10,7 @@ def checkdir(path):
         os.makedirs(path)
 
 config = yaml.load(open('./config.yml'), Loader=yaml.FullLoader)
-pace_percent = config['pace_percnet']
+pace_percent = config['pace_percent']
 alpha=[config['alpha'] for i in range(config['total_pace'])]
 
 Exp = config['exp']
