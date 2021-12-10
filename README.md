@@ -6,7 +6,7 @@
 <img src="./pic/Figure1New.jpg" width="800">
 </div>   
 
-This is official codes for paper ***Self-paced Deep Regression Forests with Consideration on Ranking Fairness.*** In this paper, we proposes a new self-paced paradigm for deep discriminative model, which distinguishes noisy and underrepresented examples according to the output likelihood and entropy associated with each example, and we tackle the fundamental ranking problem in SPL from a new perspective: **fairness**.
+This is official codes for paper ***Self-paced Deep Regression Forests with Consideration on Ranking Fairness.*** In this paper, we proposes a new self-paced paradigm for deep discriminative model, which distinguishes noisy and underrepresented examples according to the output likelihood and entropy associated with each example, and we tackle the fundamental ranking problem in SPL from a new perspective: **Fairness**.
 
 ## Why should we consider the fairness of self-paced learning?
 
@@ -34,7 +34,7 @@ The similar phenomena can be observed on MPII dataset.
 
 ### **Head Pose Estimation on BIWI Dataset**
 
-For visualization, we plot the leaf node distribution of SP-DRFs and SPUDRFs in gradual learning process. The means of leaf nodes of SP-DRFs gather in a small range, incurring seriously biased solutions, while that of SPUDRFs distribute widely, leading to much better MAE performance.
+For visualization, we plot the leaf node distribution of SP-DRFs and SPUDRFs in gradual learning process. The means of leaf nodes of SP-DRFs **gather in a small range**, incurring seriously biased solutions, while that of SPUDRFs **distribute widely**, leading to much better MAE performance.
 <div align=center>
 <img src="./pic/Uncertainty_efficacy.jpg" width="800">
 </div>  
