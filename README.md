@@ -10,7 +10,7 @@ This is official codes for paper ***Self-paced Deep Regression Forests with Cons
 
 ## Why should we consider the fairness of self-paced learning?
 
-The following figure shows that SPL focuses on easy samples at early pace and the underrepresented ones are always ranked at the end of the whole sequence. This phenomenon demonstrates the SPL has a potential sorting fairness issue. However, SPUDRFs considers sample uncertainty when ranking samples, thus making underrepresented samples be selected at early pace.
+We find that SPL focuses on easy samples at early pace and the underrepresented ones are always ranked at the end of the whole sequence. This phenomenon demonstrates the SPL has a potential sorting fairness issue. However, SPUDRFs considers sample uncertainty when ranking samples, thus making underrepresented samples be selected at early pace.
 
 <div align=center>
 <img src="./pic/Rank1_v1.png" width="600">
@@ -20,7 +20,7 @@ The following figure shows that SPL focuses on easy samples at early pace and th
 
 ### **Age Estimation on MORPH II Dataset**
 
-The gradual learning process of SP-DRFs and SPUDRFs. **Left:** The typical worst cases at each iteration.  **Right:** The MAEs of SP-DRFs and SPUDRFs at each pace descend gradually. The SPUDRFs show its superiority of taking predictive uncertainty into consideration, when compared with SP-DRFs.
+The gradual learning process of SP-DRFs and SPUDRFs. **Left:** The typical worst cases at each iteration.  **Right:** The MAEs of SP-DRFs and SPUDRFs at each pace descend gradually. Compared with SP-DRFs, the SPUDRFs show its superiority of taking predictive uncertainty into consideration.
 <div align=center>
 <img src="./pic/SPUDRFs_validation.jpg" width="800">
 </div>   
@@ -34,7 +34,7 @@ The similar phenomena can be observed on MPII dataset.
 
 ### **Head Pose Estimation on BIWI Dataset**
 
-For visualization, we plot the leaf node distribution of SP-DRFs and SPUDRFs in gradual learning process. For SP-DRFs, the Gaussian means of leaf nodes are concentrated in a small range, incurring seriously biased solutions. For SPUDRFs, the Gaussian means of leaf nodes distribute widely, leading to much better MAE performance.
+For visualization, we plot the leaf node distribution of SP-DRFs and SPUDRFs in gradual learning process. The means of leaf nodes of SP-DRFs gather in a small range, incurring seriously biased solutions, while that of SPUDRFs distribute widely, leading to much better MAE performance.
 <div align=center>
 <img src="./pic/Uncertainty_efficacy.jpg" width="800">
 </div>  
@@ -77,9 +77,7 @@ All codes are based on Pytorch, before you run this repo, please make sure that 
 ```
 pip install -r requirements.txt
 ```
-
 ### Train SPUDRFs
-
 #### **Code descritption:** 
 
 Here is the description of the main codes.  
@@ -89,11 +87,8 @@ train.py:        complete one pace training for a given train set
 predict.py:      complete a test for a given test set
 picksamples.py:  select samples for next pace   
 ```
-
 <!-- We also provide a separate folder for [MPII](https://github.com/learninginvision/SPU/tree/master/MPII) datasets, because we use the pair of left eye patch and right eye patch, and additional head pose  as input, which requires a slight modification for the codes. You can use codes in MPII folder for experiments on MPII datasets. -->
-
 #### **Train your SPUDRFs from scratch**:
-
 You should download this repo, and prepare your datasets and pre-trained models, then just run following command to train your SPUDRFs from scratch.
 - Clone this repo:
 ```
