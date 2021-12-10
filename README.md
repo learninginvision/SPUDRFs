@@ -44,7 +44,7 @@ For visualization, we plot the leaf node distribution of SP-DRFs and SPUDRFs in 
 We use FRIA, proposed in our paper, as fairness metric. FAIR is defined as following form.
 
 <div align=center>
-<img src="./pic/fair-equation.png" width="400">
+<img src="./pic/Fair-equation.png" width="400">
 </div>  
 <!-- <div align=center>
 <img src="./pic/fair_morph.jpg" width="400"><img src="./pic/fair_biwi_pitch.jpg" width="400">
