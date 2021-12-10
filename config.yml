@@ -1,0 +1,17 @@
+exp: 1
+
+lr: 0.00002
+max_step: 80000
+batchsize: 32
+
+total_pace: 10
+pace_percnet: [0.5, 0.0556, 0.0556, 0.0556, 0.0556, 0.0556, 0.0556, 0.0556, 0.0556, 0.0552]
+alpha: 2
+threshold: -3.0
+ent_pick_per: 0
+capped: False
+
+num_trees: 5
+tree_depth: 6
+num_batchs_update_forest: 50
+iterations_update_forest: 20
