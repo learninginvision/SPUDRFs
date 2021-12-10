@@ -44,7 +44,7 @@ For visualization, we plot the leaf node distribution of SP-DRFs and SPUDRFs in 
 We use FRIA, proposed in our paper, as fairness metric. FAIR is defined as following form.
 
 <div align=center>
-<img src="./pic/equation.png" width="400">
+<img src="./pic/fair-equation.png" width="400">
 </div>  
 <!-- <div align=center>
 <img src="./pic/fair_morph.jpg" width="400"><img src="./pic/fair_biwi_pitch.jpg" width="400">
@@ -62,7 +62,6 @@ The following table shows the FAIR of different methods on different datasets. S
 ### Pre-trained models and Dataset
 
 We use pre-trained models for our training. You can download VGGFace from [here](https://www.robots.ox.ac.uk/~vgg/software/vgg_face/) and VGG IMDB-WIKI from [here](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/). 
-
 The datasets used in our experiment are in following table. We use MTCNN to detect and align face. For BIWI, we use depth images. For MPII, we use normalized left eye and right eye patch as input, and details about normalization can be found [here](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/appearance-based-gaze-estimation-in-the-wild).
 
 | Task | Dataset |
