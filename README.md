@@ -13,7 +13,7 @@ This is official codes for paper ***Self-paced Deep Regression Forests with Cons
 We find that SPL focuses on easy samples at early pace and the underrepresented ones are always ranked at the end of the whole sequence. This phenomenon demonstrates the SPL has a potential sorting fairness issue. However, SPUDRFs considers sample uncertainty when ranking samples, thus making underrepresented samples be selected at early pace.
 
 <div align=center>
-<img src="./pic/Rank1_v1.png" width="600">
+<img src="./pic/Rank1_v1.png" width="500">
 </div>   
 
 ## Tasks and Performances
