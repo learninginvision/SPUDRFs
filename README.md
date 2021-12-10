@@ -5,14 +5,12 @@
 <div align=center>
 <img src="./pic/Figure1New.jpg" width="800">
 </div>   
-This is official codes for paper Self-paced Deep Regression Forests with Consideration on Ranking Fairness.
 
-In this paper, we proposes a new self-paced paradigm for deep discriminative model, which distinguishes noisy and underrepresented examples according to the output likelihood and entropy associated with each example, and we tackle the fundamental ranking problem in SPL from a new perspective: **fairness**.
-
+This is official codes for paper ***Self-paced Deep Regression Forests with Consideration on Ranking Fairness.*** In this paper, we proposes a new self-paced paradigm for deep discriminative model, which distinguishes noisy and underrepresented examples according to the output likelihood and entropy associated with each example, and we tackle the fundamental ranking problem in SPL from a new perspective: **fairness**.
 
 ## Why should we consider the fairness of self-paced learning?
 
-The following figure shows that SPL focuses on easy samples and ignores underrepresented ones at early pace and the underrepresented samples are always ranked at the end of the whole sequence, which demonstrates the SPL has a potential sorting fairness issue. To tackle this problem, SPUDRFs are porposed, which considers sample uncertainty when ranking samples, thus making underrepresented samples be selected at early pace.
+The following figure shows that SPL focuses on easy samples at early pace and the underrepresented ones are always ranked at the end of the whole sequence. This phenomenon demonstrates the SPL has a potential sorting fairness issue. However, SPUDRFs considers sample uncertainty when ranking samples, thus making underrepresented samples be selected at early pace.
 
 <div align=center>
 <img src="./pic/Rank1_v1.png" width="600">
@@ -87,9 +85,9 @@ pip install -r requirements.txt
 
 Here is the description of the main codes.  
 ```
-       step.py:  train SPUDRFs from scratch  
-      train.py:  complete one pace training for a given train set
-    predict.py:  complete a test for a given test set
+step.py:         train SPUDRFs from scratch  
+train.py:        complete one pace training for a given train set
+predict.py:      complete a test for a given test set
 picksamples.py:  select samples for next pace   
 ```
 
