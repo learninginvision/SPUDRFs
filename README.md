@@ -7,47 +7,39 @@
 </div>   
 This is official codes for paper Self-paced Deep Regression Forests with Consideration on Ranking Fairness.
 
-***Abstract:*** 	Deep discriminative models (DDMs), \eg~deep regression forests, deep neural decision forests, have been extensively studied recently to solve problems like facial age estimation, head pose estimation, gaze estimation and so forth. Such problems are challenging in part because a large amount of effective training data without noise and bias is often not available. While some progress has been achieved through learning more discriminative features, or reweighting samples, we argue what is more desirable is to learn gradually to discriminate like human beings. Then, we resort to self-paced learning (SPL). But a natural question arises: can self-paced regime lead DDMs to achieve more robust and less biased solutions? A serious problem with SPL, which is firstly mentioned by this work, is it tends to aggravate the bias of solutions, especially for obvious imbalanced data. To this end, this paper proposes a new self-paced paradigm for deep discriminative model, which distinguishes noisy and underrepresented examples according to the output likelihood and entropy associated with each example, and tackle the fundamental ranking problem in SPL from a new perspective: **fairness**. This paradigm is fundamental, and could be easily combined with a variety of DDMs. Extensive experiments on three computer vision tasks, \ie, facial age estimation, head pose estimation and gaze estimation, demonstrate the efficacy of our paradigm. To the best of our knowledge, our work is the first paper in the literature of SPL that considers ranking fairness for self-paced regime construction.
+In this paper, we proposes a new self-paced paradigm for deep discriminative model, which distinguishes noisy and underrepresented examples according to the output likelihood and entropy associated with each example, and we tackle the fundamental ranking problem in SPL from a new perspective: **fairness**.
 
- 
 
 ## Why should we consider the fairness of self-paced learning?
 
-As we can see from the above figure, SPL focuses on easy samples and ignores underrepresented ones at early pace. The following figure gives more evidence on this phenomenon, which shows the average rank of difffierent age group of MORPH datasets. We find that the underrepresented samples are always ranked at the end of the whole sequence, which demonstrates the SPL has a potential sorting fairness issue. To tackle this problem, SPUDRFs are porposed, which considers sample uncertainty when ranking samples, thus making underrepresented samples be selected at early pace.
+The following figure shows that SPL focuses on easy samples and ignores underrepresented ones at early pace and the underrepresented samples are always ranked at the end of the whole sequence, which demonstrates the SPL has a potential sorting fairness issue. To tackle this problem, SPUDRFs are porposed, which considers sample uncertainty when ranking samples, thus making underrepresented samples be selected at early pace.
 
 <div align=center>
-<img src="./pic/Rank1.jpg" width="600">
+<img src="./pic/Rank1_v1.png" width="600">
 </div>   
 
 ## Tasks and Performances
 
 ### **Age Estimation on MORPH II Dataset**
 
+The gradual learning process of SP-DRFs and SPUDRFs. **Left:** The typical worst cases at each iteration.  **Right:** The MAEs of SP-DRFs and SPUDRFs at each pace descend gradually. The SPUDRFs show its superiority of taking predictive uncertainty into consideration, when compared with SP-DRFs.
 <div align=center>
 <img src="./pic/SPUDRFs_validation.jpg" width="800">
 </div>   
 
-
-
-The gradual learning process of SP-DRFs and SPUDRFs. **Left:** The typical worst cases at each iteration. The two numbers below each image are the real age (left) and predicted age (right). **Right:** The MAEs of SP-DRFs and SPUDRFs at each pace descend gradually. The SPUDRFs show its superiority of taking predictive uncertainty into consideration, when compared with SP-DRFs.
-
 ### Gaze Estimation on MPII Dataset
 
+The similar phenomena can be observed on MPII dataset. 
 <div align=center>
 <img src="./pic/Uncertainty_mpii.jpg" width="800">
 </div>  
 
-
-The similar phenomena can be observed on MPII dataset. The MAE of SP-DRFs are inferior to that of SPUDRFs at each pace, which strongly demonstrates the defects of SP-DRFs.
-
 ### **Head Pose Estimation on BIWI Dataset**
 
+For visualization, we plot the leaf node distribution of SP-DRFs and SPUDRFs in gradual learning process. For SP-DRFs, the Gaussian means of leaf nodes are concentrated in a small range, incurring seriously biased solutions. For SPUDRFs, the Gaussian means of leaf nodes distribute widely, leading to much better MAE performance.
 <div align=center>
 <img src="./pic/Uncertainty_efficacy.jpg" width="800">
 </div>  
-
-
-The leaf node distribution of SP-DRFs and SPUDRFs in gradual learning process. Three paces, i.e. pace 1, 3, and 6, are randomly chosen for visualization. For SP-DRFs, the Gaussian means of leaf nodes (the red points in the second row) are concentrated in a small range, incurring seriously biased solutions. For SPUDRFs, the Gaussian means of leaf nodes (the orange points in the third row) distribute widely, leading to much better MAE performance.
 
 ## Fairness Evaluation
 
@@ -56,11 +48,9 @@ We use FRIA, proposed in our paper, as fairness metric. FAIR is defined as follo
 <div align=center>
 <img src="./pic/equation.png" width="400">
 </div>  
-f(·) evaluate fairness between two subsets, FAIR is the expectation of fairness of any two groups. Here we show the MAE of different groups on MORPH and BIWI dataset. As we can see from the left figure, both SP-DRFs and SPUDRFs can achieve better performance than DRFs in lower age range, while SPUDRFs is significantly better than the other two methods in higher age range. This shows our method alleviate the bias of underrepresented samples. We observe that the MAE of SPDRFs is even worse than DRFs for samples between -50° and -40°. This demonstrates the obvious drawback of the ranking and selecting scheme in original SPL --- incurring biased solutions. Our method improve the performance of underrepresented samples. Meanwhile it guarantees the performance of easy samples is also maintained at a good level, thus ensuring that the model treats the training samples fairly.
-
-<div align=center>
+<!-- <div align=center>
 <img src="./pic/fair_morph.jpg" width="400"><img src="./pic/fair_biwi_pitch.jpg" width="400">
-</div>   
+</div>    -->
 The following table shows the FAIR of different methods on different datasets. SPUDRFs achieve the best performance on all datasets.
     
 | Dataset |   MORPH   |   FGNET   |   BIWI    |  BU-3DFE  |   MPII    |
@@ -73,9 +63,15 @@ The following table shows the FAIR of different methods on different datasets. S
 
 ### Pre-trained models and Dataset
 
-We use pre-trained models for our training. You can download VGGFace from [here](https://www.robots.ox.ac.uk/~vgg/software/vgg_face/), where both caffemodel and torch model are provided.  VGG IMDB-WIKI pre-trained model can be download [here](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/), where only caffemodel is provided. 
+We use pre-trained models for our training. You can download VGGFace from [here](https://www.robots.ox.ac.uk/~vgg/software/vgg_face/) and VGG IMDB-WIKI from [here](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/). 
 
-We also provide our infomation about datasets we use in our experiment. We use [MOPRH](https://ebill.uncw.edu/C20231_ustores/web/store_main.jsp?STOREID=4) and [FG-NET](https://yanweifu.github.io/FG_NET_data/) for age estimation, [BIWI](https://icu.ee.ethz.ch/research/datsets.html) and [BU-3DFE](https://drive.google.com/file/d/1KrI37qUvaJgDnwlVb8vbluU9iV7QFtkc/view?usp=sharing) for head pose estimation, [MPII](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/appearance-based-gaze-estimation-in-the-wild) for gaze estimation. We use MTCNN to detect and align face. For BIWI, we use depth images. For MPII, we use normalized left eye and right eye patch as input, and details about normalization can be found [here](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/appearance-based-gaze-estimation-in-the-wild).
+The datasets used in our experiment are in following table. We use MTCNN to detect and align face. For BIWI, we use depth images. For MPII, we use normalized left eye and right eye patch as input, and details about normalization can be found [here](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/appearance-based-gaze-estimation-in-the-wild).
+
+| Task | Dataset |
+| :-----: | :-------: |
+| Age Estimation | [MOPRH](https://ebill.uncw.edu/C20231_ustores/web/store_main.jsp?STOREID=4) and [FG-NET](https://yanweifu.github.io/FG_NET_data/)|
+| Head Estimation| [BIWI](https://icu.ee.ethz.ch/research/datsets.html) and [BU-3DFE](https://drive.google.com/file/d/1KrI37qUvaJgDnwlVb8vbluU9iV7QFtkc/view?usp=sharing)
+| Gaze Estimation | [MPII](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/gaze-based-human-computer-interaction/appearance-based-gaze-estimation-in-the-wild)|
 
 ### Environment setup 
 
@@ -100,17 +96,34 @@ Here is the description of the main codes.
 - **picksamples.py:**   
   select samples for next pace   
 
-We also provide a separate folder for [MPII](https://github.com/learninginvision/SPU/tree/master/MPII) datasets, because we use the pair of left eye patch and right eye patch, and additional head pose  as input, which requires a slight modification for the codes. You can use codes in MPII folder for experiments on MPII datasets.
+<!-- We also provide a separate folder for [MPII](https://github.com/learninginvision/SPU/tree/master/MPII) datasets, because we use the pair of left eye patch and right eye patch, and additional head pose  as input, which requires a slight modification for the codes. You can use codes in MPII folder for experiments on MPII datasets. -->
 
 #### **Train your SPUDRFs from scratch**:
 
 You should download this repo, and prepare your datasets and pre-trained models, then just run following command to train your SPUDRFs from scratch.
-
+- Clone this repo:
 ```
 git clone https://github.com/learninginvision/SPUDRFs.git  
 cd SPUDFRs  
+```
+- set config.yml
+```
+lr: 0.00002
+max_step: 80000
+batchsize: 32
+
+total_pace: 10
+pace_percent: [0.5, 0.0556, 0.0556, 0.0556, 0.0556, 0.0556, 0.0556, 0.0556, 0.0556, 0.0552]
+alpha: 2
+threshold: -3.0
+ent_pick_per: 0
+capped: False
+```
+- train from scratch
+```
 python step.py
 ```
+
 
 ## Acknowledgments
 
