@@ -6,7 +6,7 @@
 <img src="./pic/Figure1New.jpg" width="800">
 </div>   
 
-This is official codes for paper ***Self-paced Deep Regression Forests with Consideration on Ranking Fairness.*** In this paper, we proposes a new self-paced paradigm for deep discriminative model, which distinguishes noisy and underrepresented examples according to the output likelihood and entropy associated with each example, and we tackle the fundamental ranking problem in SPL from a new perspective: **Fairness**.
+This is official codes for paper ***[Self-paced Deep Regression Forests with Consideration on Ranking Fairness](https://arxiv.org/abs/2112.06455).*** In this paper, we proposes a new self-paced paradigm for deep discriminative model, which distinguishes noisy and underrepresented examples according to the output likelihood and entropy associated with each example, and we tackle the fundamental ranking problem in SPL from a new perspective: **Fairness**.
 
 ## Why should we consider the fairness of self-paced learning?
 
