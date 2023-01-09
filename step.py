@@ -18,7 +18,7 @@ Exp = config['exp']
 base_weights = '/root/new/models/VGG_FACE.t7'
 checkpointsPath = './checkpoints/Exp{}/'.format(Exp)
 
-dataset_ = 'MORPH'
+dataset_ = 'MORPH II'
 max_step = config['max_step']
 train_dict = {
     'num_trees': config['num_trees'], 'tree_depth': config['tree_depth'], 'num_classes': 1, 'dataset': dataset_, 'exp': Exp,
