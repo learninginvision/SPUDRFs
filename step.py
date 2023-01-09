@@ -23,8 +23,8 @@ max_step = config['max_step']
 train_dict = {
     'num_trees': config['num_trees'], 'tree_depth': config['tree_depth'], 'num_classes': 1, 'dataset': dataset_, 'exp': Exp,
     'num_batchs_update_forest': config['num_batchs_update_forest'], 'iterations_update_forest': config['iterations_update_forest'], 
-    'train_txt': '/root/new/dataset/morph/txt-train/{}-train.txt'.format(dataset_), 
-    'test_txt': '/root/new/dataset/morph/txt-train/{}-test.txt'.format(dataset_),
+    'train_txt': '/SPUDRFs_master/{}/image_txt/train.txt'.format(dataset_), 
+    'test_txt': '/SPUDRFs_master/{}/image_txt/test.txt'.format(dataset_),
     'img_dir': "/root/new/dataset/morph/images/",
     'pretrain_model': (base_weights, 0, dataset_, max_step),
     'lr': config['lr'], 'max_step': max_step, 'batch_size': config['batchsize'], 'pace': 0,
